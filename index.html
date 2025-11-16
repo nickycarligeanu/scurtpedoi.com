@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html lang="ro">
-<head><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&display=swap">
+<head>
+  <meta charset="UTF-8" />
+  <title>scurtpedoi.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+
+  <!-- font simplu, dacă îl folosești -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&display=swap">
+
   <style>
-  body {
-    font-family: system-ui, sans-serif;
-    margin: 0;
-    background: #000000;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-  }
-  .box {
-    text-align: center;
-    max-width: 600px;
-    padding: 32px;
-    border-radius: 16px;
-    background: #000000;
-  }
-  .zap {
-    font-family: "Cormorant Garamond", serif;
-    font-style: italic;
-    font-size: 24px;
-    font-weight: 400;
-}
-  .footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 12px;   /* ← dublu față de 8px */
-    opacity: 0.9;
-}
-.footer a {
-    color: #193433;                          /* verde închis din poză */
-    text-decoration: none;
-    border-bottom: 1px solid rgba(25,52,51,0.4);  /* aceeași culoare, 40% */
-}
-.footer a:hover {
-    border-bottom-color: #193433;
-}
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      background: #000000;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;   /* vertical: sus → jos */
+      align-items: center;
+    }
+
+    .box {
+      text-align: center;
+      max-width: 600px;
+      padding: 32px;
+      border-radius: 16px;
+      background: #000000;
+      margin-top: auto;   /* împinge cutia spre centru */
+      margin-bottom: auto;
+    }
+
+    .zap {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .footer {
+      margin: 0 0 16px 0;   /* jos de tot, dar puțin deasupra marginii */
+      font-size: 12px;      /* mai mic decât 16, mai mare decât 8 */
+      opacity: 0.9;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #264f4d;                           /* verde închis, puțin mai luminos decât #193433 */
+      text-decoration: none;
+      border-bottom: 1px solid rgba(38,79,77,0.4);
+    }
+
+    .footer a:hover {
+      border-bottom-color: #264f4d;
+    }
   </style>
 </head>
 <body>
   <div class="box">
     <h1 class="zap">Când poți să refuzi e obligatoriu.</h1>
-
-    <p class="footer">
-      <a href="mailto:nicky@scurtpedoi.com">nicky@scurtpedoi.com</a>
-    </p>
-
   </div>
+
+  <p class="footer">
+    <a href="mailto:nicky@scurtpedoi.com">nicky@scurtpedoi.com</a>
+  </p>
 </body>
 </html>
