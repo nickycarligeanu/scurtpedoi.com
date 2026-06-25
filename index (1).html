@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nicky Cărligeanu — Aranjor · Copist · Editor de partituri</title>
+<meta name="description" content="Partituri la cerere pentru ansambluri. Publicat prin Hal Leonard. Specializat în repertoriu românesc și est-european. / Custom scores for ensembles, on demand. Published through Hal Leonard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFBF9;
+    --ink:#14110F;
+    --blue:#23427D;
+    --blue-soft:#324f86;
+    --line:#DAD8D0;
+    --muted:#6E6B64;
+    --maxw:980px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* language toggle */
+  .langbar{
+    position:sticky;top:0;z-index:20;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .langbar .wrap{display:flex;justify-content:flex-end;align-items:center;height:52px;gap:2px}
+  .langbtn{
+    font:500 13px/1 "Inter",sans-serif;letter-spacing:.06em;
+    background:none;border:0;color:var(--muted);cursor:pointer;
+    padding:7px 10px;border-radius:4px;
+  }
+  .langbtn[aria-pressed="true"]{color:var(--blue);background:rgba(35,66,125,.07)}
+  .langbtn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .langsep{color:var(--line)}
+
+  /* bilingual visibility */
+  .en{display:none}
+  body.lang-en .ro{display:none}
+  body.lang-en .en{display:inline}
+  body.lang-en .en.block{display:block}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:96px 0 72px;border-bottom:1px solid var(--line)}
+  .staff{
+    position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(
+      to bottom,
+      transparent 0, transparent 13px,
+      var(--line) 13px, var(--line) 14px
+    );
+    -webkit-mask-image:linear-gradient(to bottom, transparent, #000 18%, #000 70%, transparent);
+    mask-image:linear-gradient(to bottom, transparent, #000 18%, #000 70%, transparent);
+    opacity:.55;
+  }
+  .hero .wrap{position:relative}
+  .eyebrow{
+    font:500 13px/1 "Inter",sans-serif;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--blue);margin-bottom:20px;
+  }
+  h1{
+    font-family:"Fraunces",serif;font-weight:500;
+    font-size:clamp(40px,7.5vw,76px);line-height:1.02;letter-spacing:-.015em;
+    margin-bottom:18px;
+  }
+  .role{
+    font-family:"Fraunces",serif;font-style:italic;font-weight:400;
+    font-size:clamp(19px,3vw,26px);color:var(--ink);margin-bottom:24px;
+  }
+  .lede{max-width:48ch;color:#3a3733;font-size:clamp(16px,2vw,18px)}
+  .lede strong{font-weight:600;color:var(--ink)}
+  .cta{
+    display:inline-flex;align-items:center;gap:10px;
+    margin-top:34px;
+    background:var(--blue);color:var(--paper);
+    font:600 16px/1 "Inter",sans-serif;letter-spacing:.01em;
+    padding:15px 24px;border-radius:6px;text-decoration:none;
+    transition:background .18s ease, transform .18s ease;
+  }
+  .cta:hover{background:#1b3463;transform:translateY(-1px)}
+  .cta:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .cta .arw{font-size:18px;transform:translateY(.5px)}
+
+  /* sections */
+  section{padding:72px 0;border-bottom:1px solid var(--line)}
+  .mark{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border:1.5px solid var(--blue);color:var(--blue);
+    font:600 14px/1 "Inter",sans-serif;border-radius:3px;margin-bottom:22px;
+  }
+  h2{
+    font-family:"Fraunces",serif;font-weight:500;
+    font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.01em;
+    margin-bottom:8px;
+  }
+  .sub{color:var(--muted);font-size:15px;margin-bottom:34px}
+
+  /* what I do */
+  .do-list{list-style:none;display:grid;gap:0}
+  .do-list li{
+    display:flex;gap:16px;align-items:baseline;
+    padding:18px 0;border-top:1px solid var(--line);
+  }
+  .do-list li:last-child{border-bottom:1px solid var(--line)}
+  .dot{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:var(--blue);transform:translateY(8px)}
+  .do-list b{font-weight:600}
+  .do-list .note{color:var(--muted);font-size:15px;display:block;margin-top:2px}
+
+  /* work / portfolio */
+  .cards{display:grid;gap:18px}
+  .card{
+    border:1px solid var(--line);border-radius:8px;padding:24px;
+    background:#fff;
+    transition:border-color .18s ease, transform .18s ease;
+  }
+  .card:hover{border-color:var(--blue);transform:translateY(-2px)}
+  .card .tag{
+    font:500 11px/1 "Inter",sans-serif;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--blue);margin-bottom:12px;display:inline-block;
+  }
+  .card .tag.smp{color:var(--muted)}
+  .card h3{font-family:"Fraunces",serif;font-weight:500;font-size:22px;line-height:1.15;margin-bottom:4px}
+  .card .meta{color:var(--muted);font-size:14px;margin-bottom:16px}
+  audio{width:100%;height:40px;margin:4px 0 14px}
+  .links{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+  .links a{
+    color:var(--blue);text-decoration:none;font-weight:500;font-size:15px;
+    border-bottom:1px solid transparent;transition:border-color .15s ease;
+  }
+  .links a:hover{border-color:var(--blue)}
+  .links a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
+  .links a .arw{font-size:13px}
+
+  /* why me */
+  .why{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start}
+  .why img{width:200px;height:auto;border-radius:8px;border:1px solid var(--line);display:block}
+  .why p{max-width:54ch;font-size:17px}
+  .why p + p{margin-top:14px}
+
+  /* how it works */
+  .steps{display:grid;gap:0;counter-reset:step}
+  .step{
+    display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:baseline;
+    padding:22px 0;border-top:1px solid var(--line);
+  }
+  .step:last-child{border-bottom:1px solid var(--line)}
+  .step .n{
+    font-family:"Fraunces",serif;font-size:30px;font-weight:500;color:var(--blue);
+    line-height:1;min-width:34px;
+  }
+
+  /* contact */
+  .contact{border-bottom:0}
+  .contact .intro{color:var(--muted);font-size:16px;margin-bottom:18px;max-width:52ch}
+  .email{
+    font-family:"Fraunces",serif;font-weight:500;
+    font-size:clamp(24px,4vw,34px);color:var(--ink);text-decoration:none;
+    border-bottom:2px solid var(--blue);padding-bottom:2px;
+  }
+  .email:hover{color:var(--blue)}
+  .email:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+
+  footer{padding:38px 0;color:var(--muted);font-size:13px;letter-spacing:.02em}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  @media (max-width:680px){
+    .why{grid-template-columns:1fr;gap:22px}
+    .why img{width:148px}
+    .hero{padding:64px 0 52px}
+    section{padding:56px 0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;scroll-behavior:auto!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body class="lang-ro">
+
+<div class="langbar">
+  <div class="wrap">
+    <button class="langbtn" id="ro" aria-pressed="true" onclick="setLang('ro')">RO</button>
+    <span class="langsep">/</span>
+    <button class="langbtn" id="en" aria-pressed="false" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="staff" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow">
+      <span class="ro">Aranjor · Copist · Editor de partituri</span>
+      <span class="en">Arranger · Copyist · Score editor</span>
+    </p>
+    <h1>Nicky Cărligeanu</h1>
+    <p class="role">
+      <span class="ro">Publicat prin Hal Leonard</span>
+      <span class="en">Published through Hal Leonard</span>
+    </p>
+    <p class="lede">
+      <span class="ro block">Partituri la cerere pentru ansambluri de nuntă și eveniment — piese care nu se cumpără gata făcute. <strong>Specializat în repertoriu românesc și est-european.</strong></span>
+      <span class="en block">Custom scores for wedding and event ensembles, on demand — pieces you can't buy ready-made. <strong>Specialist in Romanian and Eastern-European repertoire.</strong></span>
+    </p>
+    <a class="cta" href="mailto:nicky@scurtpedoi.com?subject=Cerere%20ofert%C4%83%20aranjament">
+      <span class="ro">Cere o ofertă</span>
+      <span class="en">Request a quote</span>
+      <span class="arw" aria-hidden="true">→</span>
+    </a>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true">A</span>
+    <h2><span class="ro">Ce fac</span><span class="en">What I do</span></h2>
+    <p class="sub">
+      <span class="ro">Pentru orice formație, în orice stil.</span>
+      <span class="en">For any formation, in any style.</span>
+    </p>
+    <ul class="do-list">
+      <li><span class="dot" aria-hidden="true"></span><div>
+        <b><span class="ro">Piese indisponibile în comerț</span><span class="en">Pieces unavailable for purchase</span></b>
+        <span class="note"><span class="ro">aranjate de la zero, în formatul de care ai nevoie</span><span class="en">arranged from scratch, in the format you need</span></span>
+      </div></li>
+      <li><span class="dot" aria-hidden="true"></span><div>
+        <b><span class="ro">Transpoziții în orice tonalitate</span><span class="en">Transposition to any key</span></b>
+      </div></li>
+      <li><span class="dot" aria-hidden="true"></span><div>
+        <b><span class="ro">Transcripții pentru orice formație</span><span class="en">Transcriptions for any formation</span></b>
+        <span class="note"><span class="ro">cvartet, cvintet, trio, duo — sau ansamblu personalizat</span><span class="en">quartet, quintet, trio, duo — or a custom ensemble</span></span>
+      </div></li>
+      <li><span class="dot" aria-hidden="true"></span><div>
+        <b><span class="ro">Scurtări și extinderi la durată exactă</span><span class="en">Cut or extend to an exact duration</span></b>
+      </div></li>
+      <li><span class="dot" aria-hidden="true"></span><div>
+        <b><span class="ro">Îmbinarea mai multor piese într-un singur aranjament</span><span class="en">Merging several pieces into one arrangement</span></b>
+      </div></li>
+      <li><span class="dot" aria-hidden="true"></span><div>
+        <b><span class="ro">Repertoriu cultural specific</span><span class="en">Specific cultural repertoire</span></b>
+        <span class="note"><span class="ro">românesc și est-european — pentru nunți și evenimente multiculturale</span><span class="en">Romanian and Eastern-European — for multicultural weddings and events</span></span>
+      </div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true">B</span>
+    <h2><span class="ro">Lucrări</span><span class="en">Work</span></h2>
+    <p class="sub">
+      <span class="ro">Ascultă și vezi partitura.</span>
+      <span class="en">Listen and view the score.</span>
+    </p>
+    <div class="cards">
+
+      <div class="card">
+        <span class="tag"><span class="ro">Colind tradițional românesc</span><span class="en">Traditional Romanian carol</span></span>
+        <h3>Veniți la noi la Iași</h3>
+        <p class="meta"><span class="ro">aranjament propriu</span><span class="en">original arrangement</span></p>
+        <audio controls preload="none" src="veniti-la-noi-la-iasi.mp3"></audio>
+        <div class="links">
+          <a href="veniti-la-noi-la-iasi.pdf" target="_blank" rel="noopener">
+            <span class="ro">Vezi partitura</span><span class="en">View score</span> <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag smp">Sheet Music Plus · Hal Leonard</span>
+        <h3>Mastermind</h3>
+        <p class="meta">Taylor Swift · <span class="ro">aranjament</span><span class="en">arrangement</span></p>
+        <div class="links">
+          <a href="https://www.sheetmusicplus.com/en/product/mastermind-22738536.html" target="_blank" rel="noopener">
+            <span class="ro">Ascultă și cumpără</span><span class="en">Listen & buy</span> <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag smp">Sheet Music Plus · Hal Leonard</span>
+        <h3>You're On Your Own, Kid</h3>
+        <p class="meta">Taylor Swift · <span class="ro">aranjament</span><span class="en">arrangement</span></p>
+        <div class="links">
+          <a href="https://www.sheetmusicplus.com/en/product/you-re-on-your-own-kid-22736136.html" target="_blank" rel="noopener">
+            <span class="ro">Ascultă și cumpără</span><span class="en">Listen & buy</span> <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag smp">Sheet Music Plus · Hal Leonard</span>
+        <h3>Concerto Op. 6 No. 8 „Fatto per la notte di Natale”</h3>
+        <p class="meta">Corelli · <span class="ro">cvartet de coarde</span><span class="en">string quartet</span></p>
+        <div class="links">
+          <a href="https://www.sheetmusicplus.com/en/product/concerto-op-6-no-8-fato-per-la-note-di-natale-s-q-22721190.html" target="_blank" rel="noopener">
+            <span class="ro">Ascultă și cumpără</span><span class="en">Listen & buy</span> <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true">C</span>
+    <h2><span class="ro">De ce eu</span><span class="en">Why me</span></h2>
+    <p class="sub" style="margin-bottom:34px">&nbsp;</p>
+    <div class="why">
+      <img src="poza.jpg" alt="Nicky Cărligeanu">
+      <div>
+        <p>
+          <span class="ro block">Publicat prin <strong>Hal Leonard</strong>. Sunt violonist, pianist, basist și compozitor — așa că scriu partituri cântabile, gândite pentru cel care le interpretează, nu doar corecte pe hârtie.</span>
+          <span class="en block">Published through <strong>Hal Leonard</strong>. I'm a violinist, pianist, bassist and composer — so I write playable scores, made for the person reading them, not just correct on paper.</span>
+        </p>
+        <p>
+          <span class="ro block">Livrare rapidă. Știme clare și curate, gata de repetiție.</span>
+          <span class="en block">Fast delivery. Clean, clear parts, rehearsal-ready.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true">D</span>
+    <h2><span class="ro">Cum decurge</span><span class="en">How it works</span></h2>
+    <p class="sub">
+      <span class="ro">O rundă de revizuire inclusă în orice comandă.</span>
+      <span class="en">One round of revisions included in every commission.</span>
+    </p>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><div>
+        <span class="ro block">Trimite-mi referința — link, mp3, PDF — formația și nivelul interpreților.</span>
+        <span class="en block">Send the reference — link, mp3, PDF — the formation, and the players' level.</span>
+      </div></div>
+      <div class="step"><span class="n">2</span><div>
+        <span class="ro block">Primești o ofertă. La aprobare, un avans și încep lucrul.</span>
+        <span class="en block">You get a quote. On approval, a deposit and I start.</span>
+      </div></div>
+      <div class="step"><span class="n">3</span><div>
+        <span class="ro block">Livrez partitura și știmele. O rundă de revizuire este inclusă.</span>
+        <span class="en block">I deliver the score and parts. One round of revisions is included.</span>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true">E</span>
+    <h2><span class="ro">Contact</span><span class="en">Contact</span></h2>
+    <p class="intro">
+      <span class="ro">Pentru prima comandă ofer un tarif introductiv, ca să poți evalua calitatea.</span>
+      <span class="en">For a first commission I offer an introductory rate, so you can judge the quality.</span>
+    </p>
+    <a class="email" href="mailto:nicky@scurtpedoi.com?subject=Cerere%20ofert%C4%83%20aranjament">nicky@scurtpedoi.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Nicky Cărligeanu</span>
+    <span>scurtpedoi.com</span>
+  </div>
+</footer>
+
+<script>
+  function setLang(l){
+    document.body.classList.toggle('lang-en', l==='en');
+    document.documentElement.lang = l;
+    document.getElementById('ro').setAttribute('aria-pressed', l==='ro');
+    document.getElementById('en').setAttribute('aria-pressed', l==='en');
+  }
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
