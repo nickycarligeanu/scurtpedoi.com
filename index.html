@@ -4,8 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>Nicky C&#226;rligeanu &#8212; Aranjor &#183; Copist &#183; Editor de partituri</title>
-<meta name="description" content="Partituri la cerere pentru ansambluri de nun&#539;i &#537;i evenimente. / Custom scores for wedding and event ensembles, on demand.">
+<title>Nicky C&#226;rligeanu &#8212; Arranger &#183; Copyist &#183; Score editor</title>
+<meta name="description" content="Custom scores for wedding and event ensembles, on demand.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scurtpedoi.com/">
+<meta property="og:title" content="Nicky Carligeanu &#8212; Arranger &#183; Copyist &#183; Score editor">
+<meta property="og:description" content="Custom scores for wedding and event ensembles, on demand.">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -118,7 +123,7 @@
   .card .meta{color:var(--muted);font-size:14px;margin-bottom:0}
 
   .why{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start}
-  .why img{width:200px;height:auto;border-radius:8px;border:1px solid var(--line);display:block}
+  .why .portrait{width:200px;aspect-ratio:4/5;border-radius:8px;border:1px solid var(--line);background:url("https://raw.githubusercontent.com/nickycarligeanu/scurtpedoi.com/main/PozaMeaBW4.jpg") center/cover no-repeat}
   .why p{max-width:56ch;font-size:17px}
   .why .pt{display:flex;gap:12px;align-items:baseline}
   .why .pt + .pt{margin-top:14px}
@@ -138,7 +143,7 @@
 
   @media (max-width:680px){
     .why{grid-template-columns:1fr;gap:22px}
-    .why img{width:148px}
+    .why .portrait{width:148px}
     .hero{padding:64px 0 56px}
     section{padding:56px 0}
   }
@@ -239,7 +244,7 @@
   <div class="wrap">
     <h2><span class="ro">De ce eu</span><span class="en">Why me</span></h2>
     <div class="why">
-      <img src="https://raw.githubusercontent.com/nickycarligeanu/scurtpedoi.com/main/PozaMeaBW4.jpg" alt="Portret">
+      <div class="portrait" role="img" aria-label="Portret"></div>
       <div>
         <p class="pt"><span class="bul" aria-hidden="true">&#10148;</span><span>
           <span class="ro block">Sunt eu &#238;nsumi muzician &#8212; vioar&#259;, pian, bas &#8212; cu diplom&#259; &#238;n compozi&#539;ie &#537;i peste 30 de ani de experien&#539;&#259; profesional&#259; ca aranjor &#537;i copist.</span>
