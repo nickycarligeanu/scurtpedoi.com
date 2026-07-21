@@ -83,7 +83,7 @@ font-family:"Fraunces",serif;font-weight:500;
 font-size:clamp(40px,7.5vw,76px);line-height:1.02;letter-spacing:-.015em;
 margin-bottom:26px;
 }
-.lede{max-width:46ch;color:#3a3733;font-size:clamp(18px,2.4vw,22px);font-family:"Fraunces",serif;font-style:italic;font-weight:400}
+.lede{max-width:46ch;color:var(--blue);font-size:clamp(18px,2.4vw,22px);font-family:"Fraunces",serif;font-style:italic;font-weight:400}
 section{padding:72px 0;border-bottom:1px solid var(--line)}
 h2{
 font-family:"Fraunces",serif;font-weight:500;
@@ -115,23 +115,27 @@ color:var(--muted);margin-bottom:12px;display:inline-block;
 a.card:hover h3{color:var(--blue)}
 .card h3 .arw{font-size:14px;color:var(--muted);margin-left:7px;font-family:"Inter",sans-serif;font-weight:400}
 .card .meta{color:var(--muted);font-size:14px;margin-bottom:0}
-.catalog{margin-top:26px;font-size:19px;font-weight:600}
-.catalog a{color:var(--blue);text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:2px}
-.catalog a:hover{color:var(--ink)}
-.catalog a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .why{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start}
 .why .portrait{width:200px;aspect-ratio:4/5;border-radius:8px;border:1px solid var(--line);background:url("https://raw.githubusercontent.com/nickycarligeanu/scurtpedoi.com/main/PozaMeaBW4.jpg") center/cover no-repeat}
 .why p{max-width:56ch;font-size:17px}
 .why .pt{display:flex;gap:12px;align-items:baseline}
 .why .pt + .pt{margin-top:14px}
 .bul{color:var(--blue);flex:0 0 auto;font-size:13px;line-height:1.6}
+.catalink-wrap{margin-top:22px}
+.catalink{
+font-family:"Fraunces",serif;font-weight:500;
+font-size:clamp(18px,2.5vw,22px);color:var(--blue);text-decoration:none;
+border-bottom:2px solid var(--blue);padding-bottom:2px;
+}
+.catalink:hover{color:var(--ink);border-color:var(--ink)}
+.catalink:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .contact{border-bottom:0}
 .email{
 font-family:"Fraunces",serif;font-weight:500;
-font-size:clamp(24px,4vw,34px);color:var(--blue);text-decoration:none;
+font-size:clamp(18px,2.5vw,22px);color:var(--blue);text-decoration:none;
 border-bottom:2px solid var(--blue);padding-bottom:2px;
 }
-.email:hover{color:var(--ink)}
+.email:hover{color:var(--ink);border-color:var(--ink)}
 .email:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 footer{padding:38px 0;color:var(--muted);font-size:13px;letter-spacing:.02em}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
@@ -148,6 +152,7 @@ html{scroll-behavior:auto}
 </style>
 </head>
 <body class="lang-en">
+
 <div class="langbar">
 <div class="wrap">
 <button class="langbtn" id="ro" aria-pressed="false" onclick="setLang('ro')">RO</button>
@@ -155,6 +160,7 @@ html{scroll-behavior:auto}
 <button class="langbtn" id="en" aria-pressed="true" onclick="setLang('en')">EN</button>
 </div>
 </div>
+
 <header class="hero">
 <div class="staff" aria-hidden="true"></div>
 <div class="wrap">
@@ -164,11 +170,12 @@ html{scroll-behavior:auto}
 </p>
 <h1>Nick Carligeanu</h1>
 <p class="lede">
-<span class="ro">Partituri la cerere pentru ansambluri de nun&#539;i &#537;i evenimente.</span>
-<span class="en">Custom scores for wedding and event ensembles, on demand.</span>
+<span class="ro">Partituri la cerere pentru ansambluri de nun&#539;i &#537;i evenimente</span>
+<span class="en">Custom scores for wedding and event ensembles, on demand</span>
 </p>
 </div>
 </header>
+
 <section id="services">
 <div class="wrap">
 <h2><span class="ro">Ce fac</span><span class="en">What I do</span></h2>
@@ -197,43 +204,47 @@ html{scroll-behavior:auto}
 </ul>
 </div>
 </section>
+
 <section id="work">
 <div class="wrap">
 <h2><span class="ro">Exemple</span><span class="en">Samples</span></h2>
 <div class="cards">
+
 <a class="card" href="https://www.sheetmusicplus.com/en/product/mastermind-22738536.html" target="_blank" rel="noopener">
 <span class="tag">Sheet Music Plus &#183; Hal Leonard</span>
 <h3>Mastermind<span class="arw" aria-hidden="true">&#8599;</span></h3>
 <p class="meta">Taylor Swift &#183; <span class="ro">cvartet de coarde</span><span class="en">string quartet</span></p>
 </a>
+
 <a class="card" href="https://www.sheetmusicplus.com/en/product/you-re-on-your-own-kid-22736136.html" target="_blank" rel="noopener">
 <span class="tag">Sheet Music Plus &#183; Hal Leonard</span>
 <h3>You're On Your Own, Kid<span class="arw" aria-hidden="true">&#8599;</span></h3>
 <p class="meta">Taylor Swift &#183; <span class="ro">cvartet de coarde</span><span class="en">string quartet</span></p>
 </a>
-<a class="card" href="https://www.sheetmusicplus.com/en/product/concerto-op-6-no-8-fato-per-la-note-di-natale-s-q-22721190.html" target="_blank" rel="noopener">
+
+<a class="card" href="https://www.sheetmusicplus.com/en/product/concerto-grosso-op-6-no-8-christmas-concerto-23821493.html" target="_blank" rel="noopener">
 <span class="tag">Sheet Music Plus &#183; Hal Leonard</span>
-<h3>Concerto Op. 6 No. 8 &#8222;Fatto per la notte di Natale&#8221;<span class="arw" aria-hidden="true">&#8599;</span></h3>
+<h3>Concerto Grosso Op. 6 No. 8 &#8222;Christmas Concerto&#8221;<span class="arw" aria-hidden="true">&#8599;</span></h3>
 <p class="meta">Corelli &#183; <span class="ro">cvartet de coarde</span><span class="en">string quartet</span></p>
 </a>
-<a class="card" href="https://www.sheetmusicplus.com/en/product/multi-ani-traiasca-23774653.html" target="_blank" rel="noopener">
+
+<a class="card" href="https://www.sheetmusicplus.com/en/product/multi-ani-traiasca-romanian-birthday-song-23821514.html" target="_blank" rel="noopener">
 <span class="tag">Sheet Music Plus &#183; Hal Leonard</span>
-<h3>Mul&#539;i ani tr&#259;iasc&#259;<span class="arw" aria-hidden="true">&#8599;</span></h3>
-<p class="meta"><span class="ro">tradi&#539;ional rom&#226;nesc &#183; cvartet de coarde</span><span class="en">Romanian traditional &#183; string quartet</span></p>
+<h3>Mul&#539;i ani tr&#259;iasc&#259;!<span class="arw" aria-hidden="true">&#8599;</span></h3>
+<p class="meta"><span class="ro">tradi&#539;ional rom&#226;nesc &#183; cvartet de coarde</span><span class="en">Romanian birthday song &#183; string quartet</span></p>
 </a>
+
 <a class="card" href="https://www.sheetmusicplus.com/en/product/freilachs-no-16-23820726.html" target="_blank" rel="noopener">
 <span class="tag">Sheet Music Plus &#183; Hal Leonard</span>
 <h3>Freilachs No. 16<span class="arw" aria-hidden="true">&#8599;</span></h3>
-<p class="meta"><span class="ro">klezmer tradi&#539;ional &#183; cvartet de coarde</span><span class="en">traditional klezmer &#183; string quartet</span></p>
+<p class="meta">Kostakowsky &#183; klezmer &#183; <span class="ro">cvartet de coarde</span><span class="en">string quartet</span></p>
 </a>
+
 </div>
-<p class="catalog">
-<a href="https://www.sheetmusicplus.com/en/explore?q=nick+carligeanu&amp;sz=50" target="_blank" rel="noopener">
-<span class="ro">Catalogul complet pe Sheet Music Plus</span><span class="en">Full catalog on Sheet Music Plus</span> <span aria-hidden="true">&#8599;</span>
-</a>
-</p>
+<p class="catalink-wrap"><a class="catalink" href="https://www.sheetmusicplus.com/en/explore?q=nick+carligeanu&amp;sz=50" target="_blank" rel="noopener"><span class="ro">Catalogul complet pe Sheet Music Plus</span><span class="en">Full catalog on Sheet Music Plus</span> &#8599;</a></p>
 </div>
 </section>
+
 <section id="why">
 <div class="wrap">
 <h2><span class="ro">De ce eu</span><span class="en">Why me</span></h2>
@@ -264,18 +275,21 @@ html{scroll-behavior:auto}
 </div>
 </div>
 </section>
+
 <section id="contact" class="contact">
 <div class="wrap">
 <h2><span class="ro">Contact</span><span class="en">Contact</span></h2>
 <a class="email" href="mailto:nicky@scurtpedoi.com?subject=Hello">nicky@scurtpedoi.com</a>
 </div>
 </section>
+
 <footer>
 <div class="wrap">
 <span>&#169; <span id="yr"></span> Nick Carligeanu</span>
 <span>scurtpedoi.com</span>
 </div>
 </footer>
+
 <script>
 function setLang(l){
 document.body.classList.toggle('lang-en', l==='en');
@@ -285,5 +299,6 @@ document.getElementById('en').setAttribute('aria-pressed', l==='en');
 }
 document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
