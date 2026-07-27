@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- marca S/2 pentru site, albastrul #23427D. viewBox strans pe glife. -->
+<!-- INAINTE de commit: deschide in Inkscape -> Path > Object to Path -> salveaza, ca sa fie identic pe orice browser. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 46 210 104" width="210" height="104">
+  <g font-family="Optima, 'Optima Nova', sans-serif" font-weight="bold" font-size="150" fill="#23427D">
+    <g transform="translate(132,150) scale(-1.15,1)">
+      <text x="0" y="0" text-anchor="middle">2</text>
+    </g>
+    <line x1="181" y1="150" x2="189" y2="49" stroke="#23427D" stroke-width="11" stroke-linecap="butt"/>
+    <g transform="translate(238,150) scale(1.15,1)">
+      <text x="0" y="0" text-anchor="middle">2</text>
+    </g>
+  </g>
+</svg>
