@@ -4,13 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>Nick Carligeanu &#8212; Arranger &#183; Copyist &#183; Score editor</title>
+<title>Nicky C&#226;rligeanu &#8212; Arranger &#183; Copyist &#183; Score editor</title>
 <meta name="description" content="Custom scores for wedding and event ensembles, on demand.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scurtpedoi.com/">
-<meta property="og:title" content="Nick Carligeanu &#8212; Arranger &#183; Copyist &#183; Score editor">
+<meta property="og:title" content="Nicky Carligeanu &#8212; Arranger &#183; Copyist &#183; Score editor">
 <meta property="og:description" content="Custom scores for wedding and event ensembles, on demand.">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://scurtpedoi.com/og-logo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="scurtpedoi.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://scurtpedoi.com/og-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -74,6 +79,7 @@ mask-image:linear-gradient(to bottom, transparent, #000 18%, #000 70%, transpare
 opacity:.55;
 }
 .hero .wrap{position:relative}
+.brandmark{display:block;height:clamp(28px,5.2vw,53px);width:auto;margin-bottom:20px}
 .eyebrow{
 font:500 13px/1 "Inter",sans-serif;letter-spacing:.18em;text-transform:uppercase;
 color:var(--blue);margin-bottom:22px;
@@ -83,7 +89,7 @@ font-family:"Fraunces",serif;font-weight:500;
 font-size:clamp(40px,7.5vw,76px);line-height:1.02;letter-spacing:-.015em;
 margin-bottom:26px;
 }
-.lede{max-width:46ch;color:var(--blue);font-size:clamp(18px,2.4vw,22px);font-family:"Fraunces",serif;font-style:italic;font-weight:400}
+.lede{max-width:46ch;color:#3a3733;font-size:clamp(18px,2.4vw,22px);font-family:"Fraunces",serif;font-style:italic;font-weight:400}
 section{padding:72px 0;border-bottom:1px solid var(--line)}
 h2{
 font-family:"Fraunces",serif;font-weight:500;
@@ -121,21 +127,13 @@ a.card:hover h3{color:var(--blue)}
 .why .pt{display:flex;gap:12px;align-items:baseline}
 .why .pt + .pt{margin-top:14px}
 .bul{color:var(--blue);flex:0 0 auto;font-size:13px;line-height:1.6}
-.catalink-wrap{margin-top:22px}
-.catalink{
-font-family:"Fraunces",serif;font-weight:500;
-font-size:clamp(18px,2.5vw,22px);color:var(--blue);text-decoration:none;
-border-bottom:2px solid var(--blue);padding-bottom:2px;
-}
-.catalink:hover{color:var(--ink);border-color:var(--ink)}
-.catalink:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .contact{border-bottom:0}
 .email{
 font-family:"Fraunces",serif;font-weight:500;
-font-size:clamp(18px,2.5vw,22px);color:var(--blue);text-decoration:none;
+font-size:clamp(24px,4vw,34px);color:var(--ink);text-decoration:none;
 border-bottom:2px solid var(--blue);padding-bottom:2px;
 }
-.email:hover{color:var(--ink);border-color:var(--ink)}
+.email:hover{color:var(--blue)}
 .email:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 footer{padding:38px 0;color:var(--muted);font-size:13px;letter-spacing:.02em}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
@@ -152,7 +150,6 @@ html{scroll-behavior:auto}
 </style>
 </head>
 <body class="lang-en">
-
 <div class="langbar">
 <div class="wrap">
 <button class="langbtn" id="ro" aria-pressed="false" onclick="setLang('ro')">RO</button>
@@ -160,18 +157,18 @@ html{scroll-behavior:auto}
 <button class="langbtn" id="en" aria-pressed="true" onclick="setLang('en')">EN</button>
 </div>
 </div>
-
 <header class="hero">
 <div class="staff" aria-hidden="true"></div>
 <div class="wrap">
+<img src="logo-mark.svg" alt="scurtpedoi" class="brandmark">
 <p class="eyebrow">
 <span class="ro">Aranjor &#183; Copist &#183; Editor de partituri</span>
 <span class="en">Arranger &#183; Copyist &#183; Score editor</span>
 </p>
-<h1>Nick Carligeanu</h1>
+<h1>Nicky C&#226;rligeanu</h1>
 <p class="lede">
-<span class="ro">Partituri la cerere pentru ansambluri de nun&#539;i &#537;i evenimente</span>
-<span class="en">Custom scores for wedding and event ensembles, on demand</span>
+<span class="ro">Partituri la cerere pentru ansambluri de nun&#539;i &#537;i evenimente.</span>
+<span class="en">Custom scores for wedding and event ensembles, on demand.</span>
 </p>
 </div>
 </header>
@@ -209,39 +206,27 @@ html{scroll-behavior:auto}
 <div class="wrap">
 <h2><span class="ro">Exemple</span><span class="en">Samples</span></h2>
 <div class="cards">
-
 <a class="card" href="https://www.sheetmusicplus.com/en/product/mastermind-22738536.html" target="_blank" rel="noopener">
 <span class="tag">Sheet Music Plus &#183; Hal Leonard</span>
 <h3>Mastermind<span class="arw" aria-hidden="true">&#8599;</span></h3>
 <p class="meta">Taylor Swift &#183; <span class="ro">cvartet de coarde</span><span class="en">string quartet</span></p>
 </a>
-
 <a class="card" href="https://www.sheetmusicplus.com/en/product/you-re-on-your-own-kid-22736136.html" target="_blank" rel="noopener">
 <span class="tag">Sheet Music Plus &#183; Hal Leonard</span>
 <h3>You're On Your Own, Kid<span class="arw" aria-hidden="true">&#8599;</span></h3>
 <p class="meta">Taylor Swift &#183; <span class="ro">cvartet de coarde</span><span class="en">string quartet</span></p>
 </a>
-
-<a class="card" href="https://www.sheetmusicplus.com/en/product/concerto-grosso-op-6-no-8-christmas-concerto-23821493.html" target="_blank" rel="noopener">
+<a class="card" href="https://www.sheetmusicplus.com/en/product/concerto-op-6-no-8-fato-per-la-note-di-natale-s-q-22721190.html" target="_blank" rel="noopener">
 <span class="tag">Sheet Music Plus &#183; Hal Leonard</span>
-<h3>Concerto Grosso Op. 6 No. 8 &#8222;Christmas Concerto&#8221;<span class="arw" aria-hidden="true">&#8599;</span></h3>
+<h3>Concerto Op. 6 No. 8 &#8222;Fatto per la notte di Natale&#8221;<span class="arw" aria-hidden="true">&#8599;</span></h3>
 <p class="meta">Corelli &#183; <span class="ro">cvartet de coarde</span><span class="en">string quartet</span></p>
 </a>
-
-<a class="card" href="https://www.sheetmusicplus.com/en/product/multi-ani-traiasca-romanian-birthday-song-23821514.html" target="_blank" rel="noopener">
+<a class="card" href="https://www.sheetmusicplus.com/en/product/multi-ani-traiasca-23774653.html" target="_blank" rel="noopener">
 <span class="tag">Sheet Music Plus &#183; Hal Leonard</span>
-<h3>Mul&#539;i ani tr&#259;iasc&#259;!<span class="arw" aria-hidden="true">&#8599;</span></h3>
-<p class="meta"><span class="ro">tradi&#539;ional rom&#226;nesc &#183; cvartet de coarde</span><span class="en">Romanian birthday song &#183; string quartet</span></p>
+<h3>Mul&#539;i ani tr&#259;iasc&#259;<span class="arw" aria-hidden="true">&#8599;</span></h3>
+<p class="meta"><span class="ro">tradi&#539;ional rom&#226;nesc &#183; cvartet de coarde</span><span class="en">Romanian traditional &#183; string quartet</span></p>
 </a>
-
-<a class="card" href="https://www.sheetmusicplus.com/en/product/freilachs-no-16-23820726.html" target="_blank" rel="noopener">
-<span class="tag">Sheet Music Plus &#183; Hal Leonard</span>
-<h3>Freilachs No. 16<span class="arw" aria-hidden="true">&#8599;</span></h3>
-<p class="meta">Kostakowsky &#183; klezmer &#183; <span class="ro">cvartet de coarde</span><span class="en">string quartet</span></p>
-</a>
-
 </div>
-<p class="catalink-wrap"><a class="catalink" href="https://www.sheetmusicplus.com/en/explore?q=nick+carligeanu&amp;sz=50" target="_blank" rel="noopener"><span class="ro">Catalogul complet pe Sheet Music Plus</span><span class="en">Full catalog on Sheet Music Plus</span> &#8599;</a></p>
 </div>
 </section>
 
@@ -285,7 +270,7 @@ html{scroll-behavior:auto}
 
 <footer>
 <div class="wrap">
-<span>&#169; <span id="yr"></span> Nick Carligeanu</span>
+<span>&#169; <span id="yr"></span> Nicky C&#226;rligeanu</span>
 <span>scurtpedoi.com</span>
 </div>
 </footer>
@@ -299,6 +284,5 @@ document.getElementById('en').setAttribute('aria-pressed', l==='en');
 }
 document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
